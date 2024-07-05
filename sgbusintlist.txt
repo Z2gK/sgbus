@@ -1,0 +1,51 @@
+01109 - Queen St Ter, Queen St
+02099 - Marina Ctr Ter, Raffles Blvd
+03239 - Shenton Way Ter, Shenton Way
+10009 - Bt Merah Int, Bt Merah Ctrl
+11009 - Ghim Moh Ter, Ghim Moh Rd
+11379 - Buona Vista Ter, Nth Buona Vista Rd
+14009 - HarbourFront Int, Seah Im Rd
+14539 - Beach Station Bus Terminal, Beach View
+16009 - Kent Ridge Ter, Clementi Rd
+17009 - Clementi Int, Clementi Ave 3
+22009 - Boon Lay Int, Jurong West Ctrl 3
+24009 - Joo Koon Int, Joo Koon Circle
+25009 - Tuas Ter, Tuas West Dr
+28009 - Jurong East Int, Jurong Gateway Rd
+28239 - Jurong Town Hall Int, Jurong Town Hall Rd
+29009 - Jurong Town Hall Int, Venture Dr
+43009 - Bt Batok Int, Bt Batok Ctrl
+44009 - Choa Chu Kang Int, Choa Chu Kang Loop
+44989 - Gali Batu Ter, Jln Gali Batu
+46008 - Woodlands Int, Woodlands Sq
+46009 - Woodlands Int, Woodlands Sq
+46239 - Larkin Ter, Jln Datin Halimah
+47009 - Woodlands Temp Int, Woodlands Sq
+47711 - JB Sentral Bus Ter, Jln Jim Quee
+52499 - St. Michael's Ter, Whampoa Rd
+53009 - Bishan Int, Bishan St 13
+54009 - Ang Mo Kio Int, Ang Mo Kio Ave 8
+55509 - Yio Chu Kang Int, Ang Mo Kio Ave 8
+58009 - Sembawang Int, Sembawang Vista
+58241 - Sembawang Int/Opp Blk 315, Sembawang Vista
+59008 - Yishun Int, Yishun Ave 2
+59009 - Yishun Int, Yishun Ave 2
+64009 - Hougang Ctrl Int, Hougang Ctrl
+64541 - Hougang Ctrl Int, Hougang Ctrl
+65009 - Punggol Temp Int, Punggol Pl
+65259 - Punggol Stn/Int, Punggol Ctrl
+66009 - S'Goon Int, S'goon Ave 2
+67009 - Sengkang Int, Sengkang Sq
+74009 - Tampines Nth Int, Tampines St 62
+75009 - Tampines Int, Tampines Ctrl 1
+75019 - Tampines Concourse Int, Tampines Concourse
+76141 - Tampines Stn/Int, Tampines Ave 4
+77009 - Pasir Ris Int, Pasir Ris Dr 3
+80009 - Lor 1 Geylang Ter, Lor 1 Geylang
+80289 - Sims Pl Ter, Sims Pl
+82009 - Eunos Int, Eunos Rd 2
+82061 - Eunos Stn/ Int, Sims Ave
+84009 - Bedok Int, Bedok Nth Dr
+94009 - Upp East Coast Ter, Upp East Coast Rd
+99009 - Changi Village Ter, Changi Village Rd
+Updated 2 Jul 2024

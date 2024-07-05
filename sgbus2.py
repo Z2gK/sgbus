@@ -26,7 +26,7 @@ def printdesc(stopslist, stopcode):
             return stop["Description"] + ", " + stop["RoadName"]
     return ""
 
-apikey = 'aaaaaaaaaaaaaaaaaaaaaaaa'
+apikey = 'D2zTkzWOS9i4MvzsW/7p2g=='
 
 # API Key is provided in the headers via the AccountKey field - see API documentation
 headers = {'AccountKey': apikey ,'accept': 'application/json'}
@@ -55,6 +55,7 @@ else:
     print("Options:")
     print("5 digit stop code (e.g. 01112) - displays arrival information")
     print("ls - list recent bus stops")
+    print("int - list terminals and interchanges")
     print("clr - clear recent bus stops")
     print("update - update bus stop database")
     exit()
@@ -81,6 +82,12 @@ if inputarg == "update":
     pin = open("busstops.pickle", "wb")
     pickle.dump(busstoplist, pin)
     pin.close()
+    exit()
+
+if inputarg == "int":
+    fp = open("sgbusintlist.txt", "r")
+    filecontent = fp.read()
+    print(filecontent)
     exit()
 
 if inputarg == "clr":
