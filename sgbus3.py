@@ -1,3 +1,5 @@
+## Updated to use v3 of Bus Arrival API
+
 import requests
 import datetime
 import json
@@ -5,7 +7,7 @@ import sys
 import pickle
 import os
 
-def arrivein(datestring):
+def arrivein(datestring, monitored):
     if datestring == "":
         return "Arrival time not available"
     currtime = datetime.datetime.now()
@@ -16,9 +18,18 @@ def arrivein(datestring):
     if (difftime < -30):
         return "Arrival time is in the past"
     if (difftime > 30):
-        return "Arrival in " + str(round(difftime/60.0)) + "m"
+        # v3 of Bus Arrival API added the Monitored status = {0,1}
+        # 0 if estimate is based on schedule
+        # 1 if estimate is based on bus location
+        monitoredstatus = ""
+        if monitored == 0:
+            monitoredstatus = "*"
+        return "Arrival in " + monitoredstatus + str(round(difftime/60.0)) + "m"
     # If arrival time is within +/- 30s of current time
-    return "Arrived"
+    monitoredstatus = ""
+    if monitored == 0:
+        monitoredstatus = "*"
+    return monitoredstatus + "Arrived"
 
 def printdesc(stopslist, stopcode):
     for stop in stopslist:
@@ -32,7 +43,7 @@ apikey = 'APIKEYHERE'
 headers = {'AccountKey': apikey ,'accept': 'application/json'}
 
 uri = "http://datamall2.mytransport.sg"
-path = "/ltaodataservice/BusArrivalv2?"
+path = "/ltaodataservice/v3/BusArrival?"
 occupancy = {"SEA" : "Seats Available", "SDA" : "Standing Available", "LSD" : "Limited Standing"}
 vehtype = {"SD" : "Single Deck", "DD" : "Double Deck", "BD" : "Bendy", "" : ""}
 # To fix the above - temporary hack to prevent key error when referencing empty vehicle type value
@@ -137,6 +148,7 @@ try:
 
     response = requests.get(url, headers=headers)
     responsetxt = response.text
+    # print(responsetxt)
     d = json.loads(responsetxt)
 except:
     exit("Error retrieving arrival information!")
@@ -147,9 +159,9 @@ print("-------------")
 for service in d["Services"]:
     servicenumber = service["ServiceNo"]
     print("Svc " + servicenumber + " Arrival Times")
-    print(arrivein(service["NextBus"]["EstimatedArrival"]) + " (" + vehtype[service["NextBus"]["Type"]] + ")")
-    print(arrivein(service["NextBus2"]["EstimatedArrival"]) + " (" + vehtype[service["NextBus2"]["Type"]] + ")")
-    print(arrivein(service["NextBus3"]["EstimatedArrival"]) + " (" + vehtype[service["NextBus3"]["Type"]] + ")")
+    print(arrivein(service["NextBus"]["EstimatedArrival"],service["NextBus"]["Monitored"]) + " (" + vehtype[service["NextBus"]["Type"]] + ")")
+    print(arrivein(service["NextBus2"]["EstimatedArrival"], service["NextBus2"]["Monitored"]) + " (" + vehtype[service["NextBus2"]["Type"]] + ")")
+    print(arrivein(service["NextBus3"]["EstimatedArrival"], service["NextBus3"]["Monitored"]) + " (" + vehtype[service["NextBus3"]["Type"]] + ")")
     print("-------------")
 
 print()
