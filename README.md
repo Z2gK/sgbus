@@ -2,6 +2,8 @@
 
 This is a small and simple Python script that queries the bus arrival timing API from [LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en.html) and displays the result on the command line. There are no distracting ads or crashy apps here - only whatever is needed to find out the bus arrival times. This has been tested and designed to run in an Android environment command line environment such as [termux](https://termux.dev/en/).
 
+*Update 26 Aug 2024*: Script has been updated following the introduction of Bus Arrival API v3. The script `sgbus3.py` should be used. Usage instructions below should be updated.
+
 ## Usage
 
 A Python interpreter needs to be installed, as well as the following Python libraries:
