@@ -37,7 +37,13 @@ def printdesc(stopslist, stopcode):
             return stop["Description"] + ", " + stop["RoadName"]
     return ""
 
-apikey = 'APIKEYHERE'
+# Please set the datamall API key in the environment variable DATAMALLAPIKEY
+# We refrain from hardcoding the API key in the script
+# apikey = 'APIKEY'
+try:
+    apikey = os.environ["DATAMALLAPIKEY"]
+except:
+    apikey = ""
 
 # API Key is provided in the headers via the AccountKey field - see API documentation
 headers = {'AccountKey': apikey ,'accept': 'application/json'}
