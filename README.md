@@ -2,7 +2,7 @@
 
 This is a small and simple Python script that queries the bus arrival timing API from [LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en.html) and displays the result on the command line. There are no distracting ads or crashy apps here - only whatever is needed to find out the bus arrival times. This has been tested and designed to run in an Android environment command line environment such as [termux](https://termux.dev/en/).
 
-*Latest update*: This script has been updated following the introduction of Bus Arrival API v3, and `sgbus3.py` should be used.
+*Latest update*: The Python module `argparse` is now used for command line parsing.
 
 ## Usage
 
@@ -12,23 +12,24 @@ A Python interpreter needs to be installed, as well as the following Python libr
 - requests
 - datetime
 - json
-- sys
+- argparse
 - pickle
 - os
+- re
 ```
 
-Once the script has been copied over to an appropriate directory, it can be run like any Python script: `python sgbus3.py <bus stop code/option>`.
+Once the script has been copied over to an appropriate directory, it can be run like any Python script: `python sgbus4.py <bus stop code/option>`.
 
 There is a line in the script that sets the API key variable. This key can be obtained for free after signing up at the [LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en.html) site. The line containing the assignment `apikey = os.environ["DATAMALLAPIKEY"]` obtains the API key from the environment variable `DATAMALLAPIKEY`. Please set this variable in the shell and refrain from hardcoding the key in the code.
 
-When this script run for the first time, the complete list of bus stop codes and descriptions should be downloaded using the `update` option: `python sgbus3.py update`. The script will store this list in a pickle file named `busstops.pickle`, which will be used in other sections of the script.
+When this script run for the first time, the complete list of bus stop codes and descriptions should be downloaded using the `update` option: `python sgbus4.py update`. The script will store this list in a pickle file named `busstops.pickle`, which will be used in other sections of the script.
 
 The Bus Arrival API v3 now provides information on whether the arrival time estimate is based on the schedule or current bus location. Where the arrival time estimate is based on the schedule, it will be marked with an asterisk `*` in the script output.
 
 To obtain bus arrival timings for a stop, run the script with the 5-digit bus stop code as the only argument. This 5-digit code can be found at all bus stops in Singapore. The example below displays the arrival timings for bus stop number 01112, located somewhere near Bugis MRT Station.
 
 ```
-$ python sgbus3.py 01112
+$ python sgbus4.py 01112
 
 Stop number 01112 - Opp Bugis Stn Exit C, Victoria St
 -------------
@@ -97,7 +98,7 @@ Arrival in *29m (Single Deck)
 This script also stores a list of 10 recently queried bus stop codes in the file `recentstops.pickle`. To display this list, use the `ls` option.
 
 ```
-$ python sgbus3.py ls
+$ python sgbus4.py ls
 Recent stops
 Stop number 01112 - Opp Bugis Stn Exit C, Victoria St
 Stop number 67391 - Blk 333B, Sengkang East Way
@@ -105,6 +106,6 @@ Stop number 42011 - Sixth Ave Ctr, Bt Timah Rd
 
 ```
 
-This list can be cleared using the `clr` option: `python sgbus3.py clr`.
+This list can be cleared using the `clr` option: `python sgbus4.py clr`.
 
-To display help text, run the script without any argument: `python sgbus3.py`.
+To display help text, run the script with the -h option: `python sgbus4.py -h`.
